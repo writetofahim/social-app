@@ -1,11 +1,11 @@
 import { Chat, Notifications, Person } from "@mui/icons-material";
 import SearchIcon from "@mui/icons-material/Search";
-import profilePic from '../../assets/person/profile1copy.jpg'
+import profilePic from '../../assets/person/profile1copy.jpg';
 
 const Topbar = () => {
   return (
     // container
-    <div className="w-full h-[50px] bg-[#1876F3] grid grid-cols-12 items-center">
+    <div className="w-full h-[50px] bg-[#1876F3] grid grid-cols-12 items-center sticky top-0 z-[999]">
       {/* left */}
       <div className="flex items-center col-span-3">
         <h1 className="font-extrabold text-3xl ml-5 text-white">FahimSocial</h1>
@@ -39,21 +39,21 @@ const Topbar = () => {
           </div>
           {/* Chat icon */}
           <div className="relative">
-            <Chat className="text-white"/>
+            <Chat className="text-white" />
             <span className="absolute -top-[5px] -right-[5px] text-white bg-red-600 rounded-full text-xs w-4 h-4 flex items-center justify-center">
               5
             </span>
           </div>
           {/* person icon */}
           <div className="relative">
-            <Notifications className="text-white"/>
+            <Notifications className="text-white" />
             <span className="absolute -top-[5px] -right-[5px] text-white bg-red-600 rounded-full text-xs w-4 h-4 flex items-center justify-center">
               1
             </span>
           </div>
         </div>
         <div className="  ">
-            <img className="w-9 h-9 rounded-full object-cover cursor-pointer" src={profilePic} alt="" />
+          <img className="w-9 h-9 rounded-full object-cover cursor-pointer" src={profilePic} alt="" />
         </div>
       </div>
     </div>
