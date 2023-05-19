@@ -1,20 +1,36 @@
 import {
-  RssFeed,
-  Chat,
-  PlayCircleFilledOutlined,
-  Group,
   Bookmark,
-  HelpOutline,
-  WorkOutline,
+  Chat,
   Event,
+  Group,
+  HelpOutline,
+  PlayCircleFilledOutlined,
+  RssFeed,
   School,
+  WorkOutline
 } from "@mui/icons-material";
-import {users} from '../../assets/data/dummyData'
-import p from '../../assets/person/profile1copy.jpg'
+import { useEffect, useState } from "react";
+
 
 const Sidebar = () => {
+  const [data, setData] = useState([])
+  useEffect(() => {
+    getData()
+  }, [])
+
+  const getData = async () => {
+    try {
+      const res = await fetch('https://dummyjson.com/users')
+      const jsonData = await res.json()
+      console.log(jsonData.users);
+      setData(jsonData.users)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
-    <div className=" col-span-3 top-12 p-5">
+    <div className=" col-span-3 top-12 p-5 overflow-y-scroll my-scroll">
       <div className="p-5">
         <ul>
           <li className="mb-5">
@@ -55,17 +71,16 @@ const Sidebar = () => {
           </li>
         </ul>
         <button className="py-2 px-3 border rounded-md">Show more</button>
-        <hr className="my-5 "/>
+        <hr className="my-5 " />
         <ul>
-            {
-                users.map((user)=>(
-                    <li key={user.id}>
-                        {/* {console.log(user.profilePicture)} */}
-                        <img src={p} alt="" />
-                        <span>{user.username}</span>
-                    </li>
-                ))
-            }
+          {
+            data.map((user) => (
+              <li key={user.id} className="flex gap-3 items-center mb-4" >
+                <img className="w-8 h-w-8 rounded-full object-cover border" src={user.image} alt="" />
+                <span>{user.firstName + ' ' + user.lastName}</span>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
