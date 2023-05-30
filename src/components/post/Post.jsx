@@ -1,9 +1,18 @@
 import { MoreVert } from '@mui/icons-material';
-import like from '../../assets/icons/like.png';
+import likeImg from '../../assets/icons/like.png';
 import love from '../../assets/icons/love.png';
 import {users} from '../../assets/data/dummyData'
+import { useState } from 'react';
+
+
 
 const Post = ({post}) => {
+    const [like, setLike]=useState(post.like)
+    const [isLiked, setIsLiked]=useState(false)
+    const handleLike = ()=>{
+        setLike(isLiked? like-1:like+1)
+        setIsLiked(!isLiked)
+    } 
 console.log(users.find(user=>user.id===post?.userId).profilePicture)
     return (
         <div>
@@ -27,9 +36,9 @@ console.log(users.find(user=>user.id===post?.userId).profilePicture)
 
                 <div className='flex justify-between'>
                     <div className='flex gap-1'>
-                        <img className='w-5 h-5' src={like} alt="" />
-                        <img className='w-5 h-5' src={love} alt="" />
-                        <span>{post.like} people like it</span>
+                        <img className='w-5 h-5' src={likeImg} onClick={handleLike} alt="" />
+                        <img className='w-5 h-5' src={love} onClick={handleLike} alt="" />
+                        <span>{like} people like it</span>
                     </div>
                     <div>
                         <span>{post?.comment} comments</span>
