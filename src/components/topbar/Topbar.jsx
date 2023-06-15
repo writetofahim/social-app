@@ -52,7 +52,7 @@ const Topbar = () => {
             </span>
           </div>
         </div>
-        <div className="  ">
+        <div className=" h-12 w-12 ">
           <img className="w-9 h-9 rounded-full object-cover cursor-pointer" src={profilePic} alt="" />
         </div>
       </div>

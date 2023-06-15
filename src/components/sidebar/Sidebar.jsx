@@ -30,7 +30,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className=" col-span-3 top-12 p-5 overflow-y-scroll my-scroll">
+    <div className=" col-span-3 top-12 p-5  overflow-y-scroll my-scroll h-[calc(100vh-50px)]">
       <div className="p-5">
         <ul>
           <li className="mb-5">
@@ -76,7 +76,7 @@ const Sidebar = () => {
           {
             data.map((user) => (
               <li key={user.id} className="flex gap-3 items-center mb-4" >
-                <img className="w-8 h-w-8 rounded-full object-cover border" src={user.image} alt="" />
+                <img className="w-8 h-8 rounded-full object-cover border" src={user.image} alt="" />
                 <span>{user.firstName + ' ' + user.lastName}</span>
               </li>
             ))
