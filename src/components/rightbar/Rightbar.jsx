@@ -6,7 +6,7 @@ import { users } from "../../assets/data/dummyData";
 const Rightbar = ({ profile }) => {
   const HomeRightbar = () => {
     return (
-      <div className="p-5">
+      <div className="p-5 h-[calc(100vh-50px)] overflow-y-scroll">
         <div className="flex items-center gap-2">
           <img className="w-12 h-12" src={gift} alt="" />
           <p>
